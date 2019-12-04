@@ -1,0 +1,27 @@
+﻿@model IEnumerable<UserMgmtSystem.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">List of Enrolled Users</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+@foreach (var item in Model) {
+    <div class="card">
+         <div class="imgBx">
+             <img src="images/Employee1.png" alt="Employee picture" />
+         </div>
+         <div class="details">
+             <h2>  @Html.DisplayFor(modelItem => item.Name) <br />
+                 
+                <a asp-action="Edit" class="btn btn-dark btn-circle btn-sm" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" class="btn btn-warning btn-sm" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" class="btn btn-danger btn-sm" asp-route-id="@item.Id">Delete</a>
+             </h2>
+         </div>
+    </div>
+ }   
+    
